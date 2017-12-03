@@ -1,0 +1,28 @@
+package by.nc.school.dev.web.command;
+
+import by.nc.school.dev.service.UserService;
+import by.nc.school.dev.web.Pages;
+import org.springframework.beans.factory.annotation.Required;
+
+import javax.servlet.http.HttpServletRequest;
+
+class LoginCommand implements Command {
+
+    protected UserService userService;
+
+    LoginCommand() {}
+
+    public String execute(HttpServletRequest request) {
+        boolean isLoggedIn = userService.login(
+                 request.getParameter("username")
+                ,request.getParameter("password")
+        );
+        request.getSession().setAttribute(SessionAttributes.IS_LOGGED_IN, isLoggedIn);
+        return Pages.HOME_PAGE;
+    }
+
+    @Required
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+}
