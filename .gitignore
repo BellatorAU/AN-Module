@@ -7,3 +7,10 @@
 *.iml
 out
 gen
+src/main/java/by/nc/school/dev/web/validator/
+src/test/
+target/AN-Module-1.0-SNAPSHOT/WEB-INF/
+target/AN-Module-1.0-SNAPSHOT/pages/
+target/AN-Module-1.0-SNAPSHOT/src/
+target/generated-sources/
+web/
